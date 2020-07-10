@@ -3,8 +3,16 @@ def intersection(arrays):
     YOUR CODE HERE
     """
     # Your code here
-
-    return result
+    round_survivors = {0:arrays[0]}
+    current = 1
+    while current < len(arrays):
+        print(current)
+        round_survivors[current] = []
+        for num in arrays[current]:
+            if num in round_survivors[current - 1]:
+                round_survivors[current].append(num)
+        current += 1
+    return round_survivors[current - 1]
 
 
 if __name__ == "__main__":

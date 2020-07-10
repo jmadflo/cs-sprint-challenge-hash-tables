@@ -3,14 +3,14 @@ def intersection(arrays):
     YOUR CODE HERE
     """
     # Your code here
-    round_survivors = {0:set(arrays[0])}
+    round_survivors = {0: dict(zip(arrays[0], [True] * len(arrays[0])))}
     current = 1
     while current < len(arrays):
         # print(current)
-        round_survivors[current] = set()
+        round_survivors[current] = {}
         for num in arrays[current]:
             if num in round_survivors[current - 1]:
-                round_survivors[current].add(num)
+                round_survivors[current][num] = True
         current += 1
     return list(round_survivors[current - 1])
 
